@@ -1,0 +1,142 @@
+% ========================================================================
+% Brain icon
+% ========================================================================
+% Usage:
+% \pic at (0,0) {brain={
+%   scalefac=1,
+%   picname=1,
+%   filllcolor=cyan!30,
+%   filllcirclecolor=violet!20,
+%   drawcolor=black,
+%   drawcircle=violet,
+%   Linewidth=0.8pt
+% }};
+
+\tikzset{
+  pics/brain/.style={
+    code={
+      \pgfkeys{/mlsys/icon/.cd,#1}
+
+      \begin{scope}[
+        scale=\scalefac,
+        every node/.append style={transform shape}
+      ]
+
+        % ---------------------------------------------------------------------
+        % Main background / outer brain silhouette
+        % ---------------------------------------------------------------------
+        \fill[fill=\filllcolor!50]
+          (0.1,-0.5)
+            to[out=0,in=180] (0.33,-0.5)
+            to[out=0,in=270] (0.45,-0.38)
+            -- (0.45,-0.18)
+            to[out=40,in=240] (0.57,-0.13)
+            to[out=110,in=310] (0.52,-0.05)
+            to[out=130,in=290] (0.44,0.15)
+            to[out=90,in=340,distance=8] (0.08,0.69)
+            to[out=160,in=80] (-0.42,-0.15)
+            -- (-0.48,-0.7)
+            -- (0.07,-0.7)
+            -- (0.1,-0.5)
+          (-0.10,-0.42)
+            to[out=310,in=180] (0.1,-0.5);
+
+        % ---------------------------------------------------------------------
+        % Outer contour
+        % ---------------------------------------------------------------------
+        \draw[draw=\drawcolor,line width=\Linewidth]
+          (0.1,-0.5)
+            to[out=0,in=180] (0.33,-0.5)
+            to[out=0,in=270] (0.45,-0.38)
+            -- (0.45,-0.18)
+            to[out=40,in=240] (0.57,-0.13)
+            to[out=110,in=310] (0.52,-0.05)
+            to[out=130,in=290] (0.44,0.15)
+            to[out=90,in=340,distance=8] (0.08,0.69)
+            to[out=160,in=80] (-0.42,-0.15)
+            -- (-0.48,-0.7)
+          (0.07,-0.7)
+            -- (0.1,-0.5)
+          (-0.10,-0.42)
+            to[out=310,in=180] (0.1,-0.5);
+
+        % ---------------------------------------------------------------------
+        % Left / central filled lobe
+        % ---------------------------------------------------------------------
+        \draw[fill=\filllcolor,line width=\Linewidth]
+          (-0.3,-0.10)
+            -- (0.08,0.60)
+            to[out=60,in=50,distance=3] (-0.1,0.69)
+            to[out=160,in=80] (-0.26,0.59)
+            to[out=170,in=90] (-0.46,0.42)
+            to[out=170,in=110] (-0.54,0.25)
+            to[out=210,in=150] (-0.54,0.04)
+            to[out=240,in=130] (-0.52,-0.1)
+            to[out=300,in=240] cycle;
+
+        % ---------------------------------------------------------------------
+        % Inner fold details
+        % ---------------------------------------------------------------------
+        \draw[fill=\filllcolor,line width=\Linewidth]
+          (-0.04,0.64)
+            to[out=120,in=0] (-0.1,0.69)
+          (-0.19,0.52)
+            to[out=120,in=330] (-0.26,0.59)
+          (-0.4,0.33)
+            to[out=150,in=280] (-0.46,0.42)
+          (-0.44,-0.03)
+            to[bend left=30] (-0.34,-0.04)
+          (-0.33,0.08)
+            to[bend left=40] (-0.37,0.2)
+          (-0.37,0.12)
+            to[bend left=40] (-0.45,0.14)
+          (-0.26,0.2)
+            to[bend left=30] (-0.24,0.13)
+          (-0.16,0.32)
+            to[bend right=30] (-0.27,0.3)
+            to[bend right=30] (-0.29,0.38)
+          (-0.13,0.49)
+            to[bend left=30] (-0.04,0.51);
+
+        % ---------------------------------------------------------------------
+        % Circuit / neuron accent lines
+        % ---------------------------------------------------------------------
+        \draw[
+          rounded corners=0.8pt,
+          \drawcircle,
+          -{Circle[fill=\filllcirclecolor,length=2.5pt]}
+        ]
+          (-0.23,0.03) -- (-0.15,-0.03) -- (-0.19,-0.18) -- (-0.04,-0.28);
+
+        \draw[
+          rounded corners=0.8pt,
+          \drawcircle,
+          -{Circle[fill=\filllcirclecolor,length=2.5pt]}
+        ]
+          (-0.17,0.13) -- (-0.04,0.05) -- (-0.06,-0.06) -- (0.14,-0.11);
+
+        \draw[
+          rounded corners=0.8pt,
+          \drawcircle,
+          -{Circle[fill=\filllcirclecolor,length=2.5pt]}
+        ]
+          (-0.12,0.23) -- (0.31,0.0);
+
+        \draw[
+          rounded corners=0.8pt,
+          \drawcircle,
+          -{Circle[fill=\filllcirclecolor,length=2.5pt]}
+        ]
+          (-0.07,0.32) -- (0.06,0.26) -- (0.16,0.33) -- (0.34,0.2);
+
+        \draw[
+          rounded corners=0.8pt,
+          \drawcircle,
+          -{Circle[fill=\filllcirclecolor,length=2.5pt]}
+        ]
+          (-0.01,0.43) -- (0.06,0.39) -- (0.18,0.51) -- (0.31,0.4);
+
+      \end{scope}
+    }
+  }
+}

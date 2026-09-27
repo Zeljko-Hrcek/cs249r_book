@@ -1,0 +1,347 @@
+% ========================================================================
+% Globe
+% ========================================================================
+
+\tikzset{
+  pics/globe/.style={
+    code={
+      \pgfkeys{/mlsys/icon/.cd,#1}
+%
+      \begin{scope}[
+        scale=\scalefac,
+        every node/.append style={transform shape}
+      ]
+ 
+      \node[
+        circle,
+        minimum size=25mm,
+        draw=\drawcolor,
+        fill=\filllcolor!70,
+        line width=\Linewidth
+      ] (C\picname) at (0,0) {};
+ 
+      \draw[
+        draw=\drawcolor,
+        line width=\Linewidth
+      ]
+      (C\picname.north) to[bend left=65] (C\picname.south);
+ 
+      \draw[
+        draw=\drawcolor,
+        line width=\Linewidth
+      ]
+      (C\picname.north) to[bend right=65] (C\picname.south);
+%
+      \draw[
+        draw=\drawcolor,
+        line width=\Linewidth
+      ]
+      (C\picname.north) -- (C\picname.south);
+%
+      \draw[
+        draw=\drawcolor,
+        line width=\Linewidth
+      ]
+      (C\picname.west) -- (C\picname.east);
+%
+      \draw[
+        draw=\drawcolor,
+        line width=\Linewidth
+      ]
+      (C\picname.130) to[bend right=35] (C\picname.50);
+%
+      \draw[
+        draw=\drawcolor,
+        line width=\Linewidth
+      ]
+      (C\picname.230) to[bend left=35] (C\picname.310);
+%
+      \end{scope}
+    }
+  }
+} 
+
+% ========================================================================
+% Workflow icon
+% ========================================================================
+% Usage:
+%
+% \pic at (0,0) {workflow={
+%   scalefac=1,
+%   filllcolor=cyan,
+%   filllcirclecolor=green,
+%   drawcolor=black,
+%   Linewidth=0.5pt
+% }};
+%
+% Parameters:
+%   scalefac         overall icon scale
+%   filllcolor       main process-node color
+%   filllcirclecolor decision-node color
+%   drawcolor        outline / connector color
+%   Linewidth        base line width
+% ========================================================================
+
+
+% ------------------------------------------------------------------------
+% Internal workflow styles
+% ------------------------------------------------------------------------
+\tikzset{
+  % Small process/output node
+  mlsys/workflow/process node/.style={
+    rectangle,
+    minimum size=2.5mm,
+    rounded corners=1pt,
+    inner sep=1pt,
+    draw=\drawcolor,
+    line width=\Linewidth
+  },
+  % Main/top workflow block
+  mlsys/workflow/main node/.style={
+    rectangle,
+    minimum width=8.5mm,
+    minimum height=3mm,
+    rounded corners=2pt,
+    inner sep=1pt,
+    draw=\drawcolor,
+    line width=\Linewidth
+  },
+  % Decision node
+  mlsys/workflow/decision node/.style={
+    rectangle,
+    minimum size=2.5mm,
+    rounded corners=1pt,
+    inner sep=1pt,
+    rotate=45,
+    draw=\drawcolor,
+    line width=\Linewidth
+  },
+  % Workflow connectors
+  mlsys/workflow/connector/.style={
+    draw=\drawcolor,
+    rounded corners,
+    line width=\Linewidth
+  },
+  % Internal rules inside main block
+  mlsys/workflow/internal rule/.style={
+    draw=\drawcolor,
+    shorten >=4pt,
+    shorten <=4pt,
+    line width=1.5*\Linewidth
+  }
+}
+
+
+% ------------------------------------------------------------------------
+% Workflow pic
+% ------------------------------------------------------------------------
+\tikzset{
+pics/workflow/.style = {
+        code = {
+      \pgfkeys{/mlsys/icon/.cd,#1}
+
+      \begin{scope}[
+        scale=\scalefac,
+        outer sep=0pt,90
+        every node/.append style={transform shape}
+      ]
+
+        % ----------------------------------------------------------------
+        % Bottom process nodes
+        % ----------------------------------------------------------------
+        \node[
+          mlsys/workflow/process node,
+          fill=\filllcolor!30
+        ] (B3) at (-0.6,-0.47) {};
+
+        \node[
+          mlsys/workflow/process node,
+          fill=\filllcolor!60
+        ] (B2) at (0,-0.47) {};
+
+        \node[
+          mlsys/workflow/process node,
+          fill=\filllcolor!30
+        ] (B1) at (0.6,-0.47) {};
+
+        % ----------------------------------------------------------------
+        % Main workflow block
+        % ----------------------------------------------------------------
+        \node[
+          mlsys/workflow/main node,
+          fill=\filllcolor!99!violet!80
+        ] (B0) at (0,0.53) {};
+
+
+        % Internal rules
+        \draw[mlsys/workflow/internal rule]
+          ($(B0.north west)!0.33!(B0.south west)$)
+          --
+          ($(B0.north east)!0.33!(B0.south east)$);
+
+        \draw[mlsys/workflow/internal rule]
+          ($(B0.north west)!0.66!(B0.south west)$)
+          --
+          ($(B0.north east)!0.66!(B0.south east)$);
+
+        % ----------------------------------------------------------------
+        % Connectors
+        % ----------------------------------------------------------------
+        \draw[mlsys/workflow/connector]
+          (B3) |- (B0);
+
+        \draw[mlsys/workflow/connector]
+          (B2) -- (B0);
+
+        \draw[mlsys/workflow/connector]
+          (B1) |- (B0);
+
+        % ----------------------------------------------------------------
+        % Decision nodes
+        % ----------------------------------------------------------------
+        \node[
+          mlsys/workflow/decision node,
+          fill=\filllcirclecolor!30
+        ] (R1) at (-0.6,0) {};
+
+        \node[
+          mlsys/workflow/decision node,
+          fill=\filllcirclecolor!60
+        ] (R2) at (0,0) {};
+
+        \node[
+          mlsys/workflow/decision node,
+          fill=\filllcirclecolor!30
+        ] (R3) at (0.6,0) {};
+
+      \end{scope}
+    }
+  }
+}
+
+% ========================================================================
+% Battery icon
+% ========================================================================
+% Usage:
+%
+% \pic at (0,0) {battery={
+%   scalefac=0.5,
+%   picname=1,
+%   filllcolor=white,
+%   filllcirclecolor=gray,
+%   drawcolor=black,
+%   Linewidth=0.8pt
+% }};
+%
+% Parameters:
+%   scalefac         overall icon scale
+%   filllcolor       battery body fill color
+%   filllcirclecolor terminal fill color
+%   drawcolor        outline color
+%   Linewidth        outline width
+%   picname          unique node-name suffix
+% ========================================================================
+
+\tikzset{
+  pics/battery/.style={
+    code={
+      \pgfkeys{/mlsys/icon/.cd,#1}
+
+      \begin{scope}[
+        scale=\scalefac,
+        every node/.append style={transform shape}
+      ]
+
+        % ---------------------------------------------------------------------
+        % Battery terminal
+        % ---------------------------------------------------------------------
+        \node[
+          rectangle,
+          minimum width=35mm,
+          minimum height=8mm,
+          rounded corners=4pt,
+          fill=\filllcirclecolor,
+          draw=\drawcolor,
+          line width=\Linewidth
+        ] (2R\picname) at (1,0) {};
+
+        % ---------------------------------------------------------------------
+        % Battery body
+        % ---------------------------------------------------------------------
+        \node[
+          rectangle,
+          minimum width=45mm,
+          minimum height=22mm,
+          rounded corners=4pt,
+          fill=\filllcolor,
+          draw=\drawcolor,
+          line width=\Linewidth
+        ] (R\picname) at (0,0) {};
+
+        % ---------------------------------------------------------------------
+        % Charge bars
+        % ---------------------------------------------------------------------
+        \node[
+          rectangle,
+          minimum width=5mm,
+          minimum height=18mm,
+          draw=none,
+          fill=\barcolor,
+          line width=\Linewidth
+        ] (Bar3\picname)
+          at ($(R\picname.west)!0.50!(R\picname.east)$) {};
+
+        \node[
+          rectangle,
+          minimum width=5mm,
+          minimum height=18mm,
+          draw=none,
+          fill=\barcolor,
+          line width=\Linewidth
+        ] (Bar2\picname)
+          at ($(R\picname.west)!0.33!(R\picname.east)$) {};
+
+        \node[
+          rectangle,
+          minimum width=5mm,
+          minimum height=18mm,
+          draw=none,
+          fill=\barcolor,
+          line width=\Linewidth
+        ] (Bar1\picname)
+          at ($(R\picname.west)!0.16!(R\picname.east)$) {};
+
+      \end{scope}
+    }
+  }
+}
+
+% ========================================================================
+% Bell icon
+% Purpose : Notification / alert / event signal
+% Group   : General UI icons
+% ========================================================================
+
+\tikzset{
+pics/bell/.style = {
+        code = {
+      \pgfkeys{/mlsys/icon/.cd,#1}
+      
+\begin{scope}[scale=\scalefac,every node/.append style={transform shape}]
+\draw[fill=\filllcolor!20,line width=\Linewidth,draw=\drawcolor](-1.0,-0.68)to[out=90,in=250](-0.75,-0.23)
+to[out=60,in=270](-0.63,0.38)arc(180:100:0.61)coordinate(GO1)%
+arc(100:80:0.61)coordinate(GO2)%
+arc(80:0:0.61)--(0.59,0.3)to[out=270,in=115](0.69,-0.23)to[out=300,in=90](0.95,-0.68)--cycle;
+\fill[fill=\filllcirclecolor](GO1)arc(100:80:0.61)--++(0,0.11)arc(0:180:0.11)--cycle;
+\fill[fill=\filllcirclecolor](0.25,-0.68)arc(0:-180:0.26)-ccycle;
+%
+\node[circle,minimum size=20mm](C1)at(-0.02,0.43){};
+\foreach \x in {10mm,12mm,14mm}{
+\draw[\barcolor, line width=1.5*\Linewidth] (C1)+(50:\x) arc[start angle=50, end angle=0, radius=\x];
+\draw[\barcolor, line width=1.5*\Linewidth] (C1)+(180:\x) arc[start angle=180, end angle=130, radius=\x];
+}
+\end{scope}
+    }
+  }
+}
+

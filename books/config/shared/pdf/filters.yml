@@ -1,4 +1,5 @@
 filters:
+  - shared/filters/xref-draft-placeholders.lua
   - shared/filters/sidenote.lua
   - shared/filters/inject_parts.lua
   - shared/filters/dropcap.lua

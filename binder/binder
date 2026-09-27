@@ -6,8 +6,29 @@ A refactored, modular command-line interface for the MLSysBook project.
 This is the new modular version of the original binder script.
 """
 
+import os
 import sys
 from pathlib import Path
+
+
+# ---------------------------------------------------------------------------
+# Shared TikZ assets
+# ---------------------------------------------------------------------------
+# Make reusable TikZ assets available to diagram/TikZ builds regardless of
+# the temporary working directory used by the diagram renderer.
+repo_root = Path(__file__).resolve().parent.parent
+tikz_assets = repo_root / "books" / "assets" / "tikz"
+
+existing_texinputs = os.environ.get("TEXINPUTS", "")
+
+if existing_texinputs:
+    os.environ["TEXINPUTS"] = (
+        f"{tikz_assets}//{os.pathsep}{existing_texinputs}"
+    )
+else:
+    # The trailing path separator preserves TeX's standard search paths.
+    os.environ["TEXINPUTS"] = f"{tikz_assets}//{os.pathsep}"
+
 
 # Add the cli directory to Python path. resolve() keeps this correct if the
 # script is ever invoked through a link rather than by its real path.

@@ -341,12 +341,12 @@ labelformat=mylabel,justification=raggedright,singlelinecheck=false,font={ninept
 
 % Primary accent color - defined by theme-colors-volX.tex
 % Fallback to Harvard crimson if theme file not loaded
-\providecolor{accentcolor}{HTML}{A51C30}
+\definecolor{accentcolor}{HTML}{A51C30}
 % Alias for backwards compatibility
 \colorlet{crimson}{accentcolor}
 % Per-volume TOC link color (overridden by theme-colors-volX.tex);
 % defaults to black so a missing theme file still produces a sane TOC.
-\providecolor{toccolor}{HTML}{000000}
+\definecolor{toccolor}{HTML}{000000}
 
 % Fleet Stack color aliases
 % Keep the Volume 2 stack as one visual system: hue identifies the volume;
@@ -708,131 +708,133 @@ aboveskip=0pt
 \definecolor{VioletL}{RGB}{247,180,247}
 \definecolor{BrownLine}{RGB}{143,120,116}
 \definecolor{BrownL}{RGB}{233,222,220}
+ 
 
 % MLSys Textbook TikZ Palette (shared across all chapters and volumes)
-\providecolor{mlsysblue}{RGB}{31, 64, 122}
-\providecolor{mlsyslightblue}{RGB}{234, 241, 248}
-\providecolor{mlsysdarkblue}{RGB}{20, 41, 78}
-\providecolor{mlsysbluedark}{RGB}{20, 41, 78}
-\providecolor{mlsysgreen}{RGB}{22, 163, 74}
-\providecolor{mlsyslightgreen}{RGB}{220, 252, 231}
-\providecolor{mlsysdarkgreen}{RGB}{21, 128, 61}
-\providecolor{mlsysgreendark}{RGB}{21, 128, 61}
-\providecolor{mlsysred}{RGB}{220, 38, 38}
-\providecolor{mlsyslightred}{RGB}{254, 226, 226}
-\providecolor{mlsysdarkred}{RGB}{185, 28, 28}
-\providecolor{mlsysreddark}{RGB}{185, 28, 28}
-\providecolor{mlsysamber}{RGB}{217, 119, 6}
-\providecolor{mlsyslightamber}{RGB}{254, 243, 199}
-\providecolor{mlsysdarkamber}{RGB}{180, 83, 9}
-\providecolor{mlsysamberdark}{RGB}{180, 83, 9}
-\providecolor{mlsyspurple}{RGB}{124, 58, 237}
-\providecolor{mlsyslightpurple}{RGB}{243, 232, 255}
-\providecolor{mlsysdarkpurple}{RGB}{109, 40, 217}
-\providecolor{mlsyspurpledark}{RGB}{109, 40, 217}
-\providecolor{mlsysgray}{RGB}{100, 116, 139}
-\providecolor{mlsyslightgray}{RGB}{241, 245, 249}
-\providecolor{mlsysbordergray}{RGB}{203, 213, 225}
-\providecolor{mlsystext}{RGB}{51, 65, 85}
+\definecolor{mlsysblue}{RGB}{31, 64, 122}
+\definecolor{mlsyslightblue}{RGB}{234, 241, 248}
+\definecolor{mlsysdarkblue}{RGB}{20, 41, 78}
+\definecolor{mlsysbluedark}{RGB}{20, 41, 78}
+\definecolor{mlsysgreen}{RGB}{22, 163, 74}
+\definecolor{mlsyslightgreen}{RGB}{220, 252, 231}
+\definecolor{mlsysdarkgreen}{RGB}{21, 128, 61}
+\definecolor{mlsysgreendark}{RGB}{21, 128, 61}
+\definecolor{mlsysred}{RGB}{220, 38, 38}
+\definecolor{mlsyslightred}{RGB}{254, 226, 226}
+\definecolor{mlsysdarkred}{RGB}{185, 28, 28}
+\definecolor{mlsysreddark}{RGB}{185, 28, 28}
+\definecolor{mlsysamber}{RGB}{217, 119, 6}
+\definecolor{mlsyslightamber}{RGB}{254, 243, 199}
+\definecolor{mlsysdarkamber}{RGB}{180, 83, 9}
+\definecolor{mlsysamberdark}{RGB}{180, 83, 9}
+\definecolor{mlsyspurple}{RGB}{124, 58, 237}
+\definecolor{mlsyslightpurple}{RGB}{243, 232, 255}
+\definecolor{mlsysdarkpurple}{RGB}{109, 40, 217}
+\definecolor{mlsyspurpledark}{RGB}{109, 40, 217}
+\definecolor{mlsysgray}{RGB}{100, 116, 139}
+\definecolor{mlsyslightgray}{RGB}{241, 245, 249}
+\definecolor{mlsysbordergray}{RGB}{203, 213, 225}
+\definecolor{mlsystext}{RGB}{51, 65, 85}
 
 % Legacy semantic aliases used across certain TikZ figures
-\providecolor{TextDark}{RGB}{30, 41, 59}
-\providecolor{TextMuted}{RGB}{100, 116, 139}
-\providecolor{CardBorder}{RGB}{203, 213, 225}
-\providecolor{CardBg}{RGB}{248, 250, 252}
-\providecolor{CardFill}{RGB}{248, 250, 252}
-\providecolor{CanvasBorder}{RGB}{203, 213, 225}
-\providecolor{CanvasBg}{RGB}{248, 250, 252}
-\providecolor{BlueLine}{RGB}{31, 64, 122}
-\providecolor{GreenLine}{RGB}{22, 163, 74}
-\providecolor{RedLine}{RGB}{220, 38, 38}
-\providecolor{OrangeLine}{RGB}{217, 119, 6}
-\providecolor{PurpleLine}{RGB}{124, 58, 237}
-\providecolor{SlateLine}{RGB}{100, 116, 139}
-\providecolor{SlateFill}{RGB}{241, 245, 249}
-\providecolor{SlateGray}{RGB}{112, 128, 144}
-\providecolor{SlateGrey}{RGB}{112, 128, 144}
-\providecolor{DarkGreen}{RGB}{20, 110, 60}
-\providecolor{DarkBlue}{RGB}{20, 41, 78}
-\providecolor{DarkNavy}{RGB}{15, 23, 42}
-\providecolor{DarkSlate}{RGB}{47, 79, 79}
-\providecolor{DarkRed}{RGB}{185, 28, 28}
-\providecolor{DarkOrange}{RGB}{180, 83, 9}
-\providecolor{DarkPurple}{RGB}{109, 40, 217}
-\providecolor{LightBlue}{RGB}{234, 241, 248}
-\providecolor{LightGreen}{RGB}{220, 252, 231}
-\providecolor{LightRed}{RGB}{254, 226, 226}
-\providecolor{LightOrange}{RGB}{254, 243, 199}
-\providecolor{LightPurple}{RGB}{243, 232, 255}
-\providecolor{LightGray}{RGB}{241, 245, 249}
-\providecolor{LightSlate}{RGB}{241, 245, 249}
-\providecolor{MidGray}{RGB}{100, 116, 139}
-\providecolor{MutedSlate}{RGB}{100, 116, 139}
-\providecolor{DarkGray}{RGB}{30, 41, 59}
-\providecolor{NavyBlue}{RGB}{20, 41, 78}
-\providecolor{OceanBlue}{RGB}{30, 144, 255}
-\providecolor{AmberOrange}{RGB}{217, 119, 6}
-\providecolor{SoftBlue}{RGB}{234, 241, 248}
-\providecolor{SoftGreen}{RGB}{220, 252, 231}
-\providecolor{SoftRed}{RGB}{254, 226, 226}
-\providecolor{SoftOrange}{RGB}{254, 243, 199}
-\providecolor{SoftPurple}{RGB}{243, 232, 255}
-\providecolor{SoftAmber}{RGB}{254, 243, 199}
-\providecolor{SoftGrey}{RGB}{241, 245, 249}
-\providecolor{SoftTeal}{RGB}{204, 251, 241}
-\providecolor{CrimsonRed}{RGB}{185, 28, 28}
-\providecolor{CoralRed}{RGB}{248, 113, 113}
-\providecolor{EmeraldGreen}{RGB}{16, 185, 129}
-\providecolor{MintGreen}{RGB}{52, 211, 153}
-\providecolor{WarmOrange}{RGB}{249, 115, 22}
-\providecolor{PurpleHeart}{RGB}{107, 33, 168}
-\providecolor{PurpleViolet}{RGB}{139, 92, 246}
-\providecolor{PurpleFill}{RGB}{243, 232, 255}
-\providecolor{BorderAmber}{RGB}{245, 158, 11}
-\providecolor{BorderBlue}{RGB}{59, 130, 246}
-\providecolor{BorderGreen}{RGB}{34, 197, 94}
-\providecolor{BorderPurple}{RGB}{168, 85, 247}
-\providecolor{BorderRed}{RGB}{239, 68, 68}
-\providecolor{BorderGray}{RGB}{203, 213, 225}
-\providecolor{BorderGrey}{RGB}{203, 213, 225}
+\definecolor{TextDark}{RGB}{30, 41, 59}
+\definecolor{TextMuted}{RGB}{100, 116, 139}
+\definecolor{CardBorder}{RGB}{203, 213, 225}
+\definecolor{CardBg}{RGB}{248, 250, 252}
+\definecolor{CardFill}{RGB}{248, 250, 252}
+\definecolor{CanvasBorder}{RGB}{203, 213, 225}
+\definecolor{CanvasBg}{RGB}{248, 250, 252}
+\definecolor{BlueLine}{RGB}{31, 64, 122}
+\definecolor{GreenLine}{RGB}{22, 163, 74}
+\definecolor{RedLine}{RGB}{220, 38, 38}
+\definecolor{OrangeLine}{RGB}{217, 119, 6}
+\definecolor{PurpleLine}{RGB}{124, 58, 237}
+\definecolor{SlateLine}{RGB}{100, 116, 139}
+\definecolor{SlateFill}{RGB}{241, 245, 249}
+\definecolor{SlateGray}{RGB}{112, 128, 144}
+\definecolor{SlateGrey}{RGB}{112, 128, 144}
+\definecolor{DarkGreen}{RGB}{20, 110, 60}
+\definecolor{DarkBlue}{RGB}{20, 41, 78}
+\definecolor{DarkNavy}{RGB}{15, 23, 42}
+\definecolor{DarkSlate}{RGB}{47, 79, 79}
+\definecolor{DarkRed}{RGB}{185, 28, 28}
+\definecolor{DarkOrange}{RGB}{180, 83, 9}
+\definecolor{DarkPurple}{RGB}{109, 40, 217}
+\definecolor{LightBlue}{RGB}{234, 241, 248}
+\definecolor{LightGreen}{RGB}{220, 252, 231}
+\definecolor{LightRed}{RGB}{254, 226, 226}
+\definecolor{LightOrange}{RGB}{254, 243, 199}
+\definecolor{LightPurple}{RGB}{243, 232, 255}
+\definecolor{LightGray}{RGB}{241, 245, 249}
+\definecolor{LightSlate}{RGB}{241, 245, 249}
+\definecolor{MidGray}{RGB}{100, 116, 139}
+\definecolor{MutedSlate}{RGB}{100, 116, 139}
+\definecolor{DarkGray}{RGB}{30, 41, 59}
+\definecolor{NavyBlue}{RGB}{20, 41, 78}
+\definecolor{OceanBlue}{RGB}{30, 144, 255}
+\definecolor{AmberOrange}{RGB}{217, 119, 6}
+\definecolor{SoftBlue}{RGB}{234, 241, 248}
+\definecolor{SoftGreen}{RGB}{220, 252, 231}
+\definecolor{SoftRed}{RGB}{254, 226, 226}
+\definecolor{SoftOrange}{RGB}{254, 243, 199}
+\definecolor{SoftPurple}{RGB}{243, 232, 255}
+\definecolor{SoftAmber}{RGB}{254, 243, 199}
+\definecolor{SoftGrey}{RGB}{241, 245, 249}
+\definecolor{SoftTeal}{RGB}{204, 251, 241}
+\definecolor{CrimsonRed}{RGB}{185, 28, 28}
+\definecolor{CoralRed}{RGB}{248, 113, 113}
+\definecolor{EmeraldGreen}{RGB}{16, 185, 129}
+\definecolor{MintGreen}{RGB}{52, 211, 153}
+\definecolor{WarmOrange}{RGB}{249, 115, 22}
+\definecolor{PurpleHeart}{RGB}{107, 33, 168}
+\definecolor{PurpleViolet}{RGB}{139, 92, 246}
+\definecolor{PurpleFill}{RGB}{243, 232, 255}
+\definecolor{BorderAmber}{RGB}{245, 158, 11}
+\definecolor{BorderBlue}{RGB}{59, 130, 246}
+\definecolor{BorderGreen}{RGB}{34, 197, 94}
+\definecolor{BorderPurple}{RGB}{168, 85, 247}
+\definecolor{BorderRed}{RGB}{239, 68, 68}
+\definecolor{BorderGray}{RGB}{203, 213, 225}
+\definecolor{BorderGrey}{RGB}{203, 213, 225}
+\definecolor{SteelBlue}{rgb}{0.27, 0.51, 0.71}
 
 % Colors referenced by TikZ figures that had no global definition.
 % Values follow the palette above so these read as first-class members of it.
-\providecolor{mlsysdark}{RGB}{30, 41, 59}       % figure body text (= TextDark)
-\providecolor{mlsysteal}{RGB}{13, 148, 136}     % teal accent
-\providecolor{DeepBlue}{RGB}{31, 64, 122}       % blue border (= BlueLine)
-\providecolor{MutedGray}{RGB}{100, 116, 139}    % secondary text (= mlsysgray)
-\providecolor{AmberStage}{RGB}{217, 119, 6}     % amber stage accent (= OrangeLine)
-\providecolor{OrangeBorder}{RGB}{217, 119, 6}   % orange border (= OrangeLine)
-\providecolor{GridLine}{RGB}{203, 213, 225}     % dashed plot gridlines (= CardBorder)
-\providecolor{TealLine}{RGB}{13, 148, 136}      % teal border
-\providecolor{TealFill}{RGB}{204, 251, 241}     % teal fill (= SoftTeal)
+\definecolor{mlsysdark}{RGB}{30, 41, 59}       % figure body text (= TextDark)
+\definecolor{mlsysteal}{RGB}{13, 148, 136}     % teal accent
+\definecolor{DeepBlue}{RGB}{31, 64, 122}       % blue border (= BlueLine)
+\definecolor{MutedGray}{RGB}{100, 116, 139}    % secondary text (= mlsysgray)
+\definecolor{AmberStage}{RGB}{217, 119, 6}     % amber stage accent (= OrangeLine)
+\definecolor{OrangeBorder}{RGB}{217, 119, 6}   % orange border (= OrangeLine)
+\definecolor{GridLine}{RGB}{203, 213, 225}     % dashed plot gridlines (= CardBorder)
+\definecolor{TealLine}{RGB}{13, 148, 136}      % teal border
+\definecolor{TealFill}{RGB}{204, 251, 241}     % teal fill (= SoftTeal)
 
 % Background grouping boxes ("\scoped[on background layer]" fit nodes).
-\providecolor{BackLine}{RGB}{203, 213, 225}     % grouping-box border (= CardBorder)
-\providecolor{BackColor}{RGB}{241, 245, 249}    % grouping-box fill (= LightGray)
-\providecolor{darknavy}{RGB}{15, 23, 42}        % lowercase alias of DarkNavy
-\providecolor{VioletL2}{RGB}{232, 224, 255}     % light violet fill (matches BlueL/RedL/GreenL)
-\providecolor{OliveLine}{RGB}{128, 128, 74}     % muted olive line (matches BrownLine's tone)
+\definecolor{BackLine}{RGB}{203, 213, 225}     % grouping-box border (= CardBorder)
+\definecolor{BackColor}{RGB}{241, 245, 249}    % grouping-box fill (= LightGray)
+\definecolor{darknavy}{RGB}{15, 23, 42}        % lowercase alias of DarkNavy
+\definecolor{VioletL2}{RGB}{232, 224, 255}     % light violet fill (matches BlueL/RedL/GreenL)
+\definecolor{OliveLine}{RGB}{128, 128, 74}     % muted olive line (matches BrownLine's tone)
 
 % Canonical diagram colors from diagram.yml
-\providecolor{BlueFill}{HTML}{D6EAF8}
-\providecolor{GreenFill}{HTML}{D5F5E3}
-\providecolor{GreenL0}{HTML}{D5F5E3}
-\providecolor{OrangeFill}{HTML}{FDEBD0}
-\providecolor{RedFill}{HTML}{F2D7D5}
-\providecolor{VioletFill}{RGB}{243, 243, 255}
-\providecolor{YellowFill}{RGB}{254, 247, 224}
-\providecolor{GrayLine}{HTML}{666666}
-\providecolor{GrayL}{HTML}{E0E0E0}
-\providecolor{BlueD}{RGB}{62,100,125}
-\providecolor{BlueL}{RGB}{209,243,255}
-\providecolor{GreenD}{RGB}{40,117,40}
-\providecolor{GreenL}{RGB}{219,253,166}
-\providecolor{OrangeL}{RGB}{250,212,175}
-\providecolor{RedL}{RGB}{253,226,240}
-\providecolor{TextColor}{RGB}{224,224,224}
-\providecolor{TextBlack}{HTML}{333333}
+\definecolor{BlueFill}{HTML}{D6EAF8}
+\definecolor{GreenFill}{HTML}{D5F5E3}
+\definecolor{GreenL0}{HTML}{D5F5E3}
+\definecolor{OrangeFill}{HTML}{FDEBD0}
+\definecolor{RedFill}{HTML}{F2D7D5}
+\definecolor{VioletFill}{RGB}{243, 243, 255}
+\definecolor{YellowFill}{RGB}{254, 247, 224}
+\definecolor{GrayLine}{HTML}{666666}
+\definecolor{GrayL}{HTML}{E0E0E0}
+\definecolor{BlueD}{RGB}{62,100,125}
+\definecolor{BlueL}{RGB}{209,243,255}
+\definecolor{GreenD}{RGB}{40,117,40}
+\definecolor{GreenL}{RGB}{219,253,166}
+\definecolor{OrangeL}{RGB}{250,212,175}
+\definecolor{RedL}{RGB}{253,226,240}
+\definecolor{TextColor}{RGB}{224,224,224}
+\definecolor{TextBlack}{HTML}{333333}
 
 % ===============================================================================
 % PART STYLING SYSTEM
@@ -1607,18 +1609,29 @@ align=right,font={\normalfont\fontsize{40pt}{40}\selectfont}]
 % =============================================================================
 % Decorative large first letter at chapter openings, following the tradition
 % of Hennessy & Patterson and other MIT Press textbooks.
+%
 % Usage in QMD: \lettrine{T}{he first sentence...}
-\usepackage{lettrine}
-\renewcommand{\LettrineFontHook}{\color{crimson}\bfseries}
-\setcounter{DefaultLines}{3}          % Drop cap spans 3 lines
-\renewcommand{\DefaultLoversize}{0}   % Exact 3-line height for clean baseline alignment
-\renewcommand{\DefaultLraise}{0}      % No vertical shift
-% J and Q have descenders; lift them so their tails clear the following lines.
+
+% Per-letter lettrine options.
+% NOTE:
+% \LettrineOptionsFor must be placed inside a lettrine options file,
+% not executed directly in the preamble.
+\begin{filecontents*}[overwrite]{mlsys-lettrine.cfl}
 \LettrineOptionsFor{J}{lraise=0.15}
-\LettrineOptionsFor{Q}{lraise=0.10}
-\setlength{\DefaultFindent}{2pt}      % Gap between drop cap and following text (prevents collision)
+\end{filecontents*}
+
+\usepackage{lettrine}
+
+\renewcommand{\DefaultOptionsFile}{mlsys-lettrine.cfl}
+
+\renewcommand{\LettrineFontHook}{\color{crimson}\bfseries}
+
+\setcounter{DefaultLines}{3}          % Drop cap spans 3 lines
+\renewcommand{\DefaultLoversize}{0.1} % Slight oversize for visual weight
+\renewcommand{\DefaultLraise}{0}      % No vertical shift
+
 \setlength{\DefaultNindent}{0.5em}    % Indent of continuation text
-\setlength{\DefaultSlope}{0pt}        % No slope on continuation
+\setlength{\DefaultSlope}{0pt}        % No slope on continuation 
 
 % =============================================================================
 % RUNNING HEADERS — Truncation Safety
